@@ -353,7 +353,7 @@ class PureChat extends PluginBase
                         {
                             $this->factionsAPI = new FactionsProOld();
 
-                            $this->getLogger()->notice("FactionsPro-OLD support enabled.");
+                            $this->getLogger()->notice("FactionsPro < 1.4 support enabled.");
 
                             break;
                         }
@@ -361,7 +361,7 @@ class PureChat extends PluginBase
                         {
                             $this->factionsAPI = new FactionsProNew();
 
-                            $this->getLogger()->notice("FactionsPro-NEW support enabled.");
+                            $this->getLogger()->notice("FactionsPro >= 1.4 support enabled.");
 
                             break;
                         }
