@@ -44,6 +44,8 @@ class PureChat extends PluginBase
 
     /** @var \_64FF00\PurePerms\PurePerms $purePerms */
     private $purePerms;
+    
+    private $rankUp;
 
     public function onLoad()
     {
@@ -59,7 +61,7 @@ class PureChat extends PluginBase
 
             $this->fixOldConfig();
         }
-
+        $this->rankUp = $this->getServer()->getPluginManager()->getPlugin("RankUp");
         $this->purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
     }
     
