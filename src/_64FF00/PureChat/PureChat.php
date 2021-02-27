@@ -477,7 +477,10 @@ class PureChat extends PluginBase
 
         $string = str_replace("{prefix}", $this->getPrefix($player, $levelName), $string);
         $string = str_replace("{suffix}", $this->getSuffix($player, $levelName), $string);
-        $string = str_replace("{rankup}", Server::getInstance()->getPluginManager()->getPlugin("RankUp")->getNextRank($player), $string);
+        try {
+            $string = str_replace("{suffix}", $this->getSuffix($player, $levelName), $string);
+        } catch (\Throwable $th) {
+        }
 
         return $string;
     }
