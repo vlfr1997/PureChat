@@ -45,6 +45,8 @@ class PureChat extends PluginBase
     /** @var \_64FF00\PurePerms\PurePerms $purePerms */
     private $purePerms;
 
+    private $rankUp;
+
     public function onLoad()
     {
         $this->saveDefaultConfig();
@@ -61,6 +63,7 @@ class PureChat extends PluginBase
         }
 
         $this->purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
+        $this->rankUp = $this->getServer()->getPluginManager()->getPlugin("RankUp");
     }
     
     public function onEnable()
@@ -478,12 +481,12 @@ class PureChat extends PluginBase
         $string = str_replace("{prefix}", $this->getPrefix($player, $levelName), $string);
         $string = str_replace("{suffix}", $this->getSuffix($player, $levelName), $string);
         try {
-            $group = $this->purePerms->getUserDataMgr()->getData($player)['group'];
+            $group = $this->rankUp->getRankUpDoesGroups()->getPlayerGroup($player);
 
 			if($group !== null){
 				$string = str_replace("{rankup}", $group, $string);
 			}else{
-                $string = str_replace("{rankup}", "No Rank", $string);;
+                $string = str_replace("{rankup}", "0", $string);;
             }
         } catch (\Throwable $th) {
             echo $th;
