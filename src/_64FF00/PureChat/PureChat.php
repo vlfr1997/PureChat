@@ -481,7 +481,7 @@ class PureChat extends PluginBase
         $string = str_replace("{prefix}", $this->getPrefix($player, $levelName), $string);
         $string = str_replace("{suffix}", $this->getSuffix($player, $levelName), $string);
         try {
-            $group = $this->rankUp->getRankUpDoesGroups()->getPlayerGroup($player);
+            $group = $this->rankUp->getRankManager()->getRankName($this->rankUp->getRankManager()->getRank($player));
 
 			if($group !== null){
 				$string = str_replace("{rankup}", $group, $string);
