@@ -63,7 +63,7 @@ class PureChat extends PluginBase
         }
 
         $this->purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
-        $this->rankUp = $this->getServer()->getPluginManager()->getPlugin("RankUp");
+        $this->rankUp = $this->getServer()->getPluginManager()->getPlugin("Rankup");
     }
     
     public function onEnable()
