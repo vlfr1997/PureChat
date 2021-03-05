@@ -483,13 +483,13 @@ class PureChat extends PluginBase
         try {
             $group = $this->rankUp->getRankManager()->getRankName($this->rankUp->getRankManager()->getRank($player));
 
-			if($group !== null){
-				$string = str_replace("{rankup}", $group, $string);
-			}else{
-                $string = str_replace("{rankup}", "0", $string);;
+		if($group !== null){
+			$string = str_replace("{rankup}", $group, $string);
+		}else{
+		$string = str_replace("{rankup}", "Sem rank", $string);
             }
         } catch (\Throwable $th) {
-            echo $th;
+            $string = str_replace("{rankup}", "Sem rank", $string);
         }
 
         return $string;
